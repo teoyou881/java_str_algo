@@ -46,18 +46,15 @@ public class DoublyLinkedList {
 
   public void append(int value) {
     Node newNode = new Node(value);
-    if (head == null && tail == null) {
-      this.head = newNode;
-      this.tail = newNode;
+    if(this.head == null || length==0) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail.next = newNode;
+      newNode.prev = tail;
+      tail = newNode;
     }
-    Node temp = this.head;
-    while (temp.next != null) {
-      temp = temp.next;
-    }
-    temp.next = newNode;
-    newNode.prev = temp;
-    newNode.next=null;
-    this.length++;
+    length++;
   }
 
 
