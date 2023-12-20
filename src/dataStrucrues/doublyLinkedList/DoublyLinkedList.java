@@ -128,4 +128,13 @@ public class DoublyLinkedList {
     return temp;
   }
 
+  public boolean set(int index, int value) {
+    if(this.head==null || length==0 || get(index)==null){
+      return false;
+    }
+    Node node = get(index);
+    node.value = value;
+    return true;
+  }
+
 }
