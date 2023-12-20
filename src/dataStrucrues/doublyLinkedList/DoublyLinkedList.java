@@ -46,7 +46,7 @@ public class DoublyLinkedList {
 
   public void append(int value) {
     Node newNode = new Node(value);
-    if(this.head == null || length==0) {
+    if (this.head == null || length == 0) {
       head = newNode;
       tail = newNode;
     } else {
@@ -57,5 +57,24 @@ public class DoublyLinkedList {
     length++;
   }
 
+  // return Node which is removed
+  public Node removeLast() {
+    if (this.head == null || length == 0) {
+      this.head = null;
+      this.tail = null;
+      return null;
+    }
+    Node temp = this.tail;
+    if (this.head.next == null || this.tail.prev == null || length == 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = this.tail.prev;
+      temp.prev = null;
+      this.tail.next = null;
+    }
+    length--;
+    return temp;
+  }
 
 }

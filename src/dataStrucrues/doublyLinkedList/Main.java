@@ -2,27 +2,26 @@ package dataStrucrues.doublyLinkedList;
 public class Main {
 
   public static void main(String[] args) {
+
+
+
     DoublyLinkedList myDLL = new DoublyLinkedList(1);
     myDLL.append(2);
 
-    myDLL.getHead();
-    myDLL.getTail();
-    myDLL.getLength();
+    // (2) Items - Returns 2 Node
+    System.out.println(myDLL.removeLast().value);
+    // (1) Item - Returns 1 Node
+    System.out.println(myDLL.removeLast().value);
+    // (0) Items - Returns null
+    System.out.println(myDLL.removeLast());
 
-    System.out.println("\nDoubly Linked List:");
-    myDLL.printList();
-    myDLL.getLength();
 
-        /*
-       		EXPECTED OUTPUT:
+    	/*
+        	EXPECTED OUTPUT:
         	----------------
-        	Head: 1
-        	Tail: 2
-        	Length: 2
-
-        	Doubly Linked List:
-        	1
         	2
+        	1
+        	null
 
      	*/
   }
