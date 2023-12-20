@@ -6,8 +6,6 @@ public class DoublyLinkedList {
   private Node tail;
   private int length;
 
-
-
   class Node {
 
     int value;
@@ -81,15 +79,33 @@ public class DoublyLinkedList {
 
   public void prepend(int value) {
     Node newNode = new Node(value);
-    if(this.head==null || length==0){
+    if (this.head == null || length == 0) {
       this.head = newNode;
       this.tail = newNode;
     }
     newNode.next = this.head;
     this.head.prev = newNode;
     this.head = newNode;
-        length++;
+    length++;
 
+  }
+
+  public Node removeFirst() {
+
+    if (this.head == null || length == 0) {
+      return null;
+    }
+    Node temp = this.head;
+    if (this.head.next == null || length == 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = this.head.next;
+      temp.next = null;
+      this.head.prev = null;
+    }
+    length--;
+    return temp;
   }
 
 }
