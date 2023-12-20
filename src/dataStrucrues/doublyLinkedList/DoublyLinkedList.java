@@ -57,6 +57,8 @@ public class DoublyLinkedList {
     temp.next = newNode;
     newNode.prev = temp;
     newNode.next=null;
+    this.length++;
   }
+
 
 }

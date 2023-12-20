@@ -11,6 +11,7 @@ public class Main {
 
     System.out.println("\nDoubly Linked List:");
     myDLL.printList();
+    myDLL.getLength();
 
         /*
        		EXPECTED OUTPUT:
