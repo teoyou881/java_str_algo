@@ -28,12 +28,26 @@ public class Queue {
   }
 
   public void getFirst() {
-    System.out.println(first.value);
+    System.out.println("first = "+ first.value);
   }
   public void getLast() {
-    System.out.println(last.value);
+    System.out.println("last ="+last.value);
   }
   public void getLength() {
     System.out.println("length = " + length);
+  }
+
+  public void enqueue(int value) {
+    Node newNode = new Node(value);
+    if(length==0){
+      this.first = newNode;
+      this.last = newNode;
+    }else{
+    Node temp = this.last;
+    this.last = newNode;
+    temp.next = newNode;
+
+    }
+    length++;
   }
 }
