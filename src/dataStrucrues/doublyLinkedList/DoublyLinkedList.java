@@ -82,10 +82,11 @@ public class DoublyLinkedList {
     if (this.head == null || length == 0) {
       this.head = newNode;
       this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
     }
-    newNode.next = this.head;
-    this.head.prev = newNode;
-    this.head = newNode;
     length++;
 
   }
@@ -108,19 +109,19 @@ public class DoublyLinkedList {
     return temp;
   }
 
-  public Node get(int index){
-    if (this.head == null || length == 0 || index>=length) {
+  public Node get(int index) {
+    if (this.head == null || length == 0 || index >= length) {
       return null;
     }
-    int num = length-index-1;
-      Node temp=null;
-    if(num>=index){
-      temp=this.head;
+    int num = length - index - 1;
+    Node temp = null;
+    if (num >= index) {
+      temp = this.head;
       for (int i = 0; i < index; i++) {
         temp = temp.next;
       }
-    }else{
-      temp=this.tail;
+    } else {
+      temp = this.tail;
       for (int i = 0; i < num; i++) {
         temp = temp.prev;
       }
@@ -129,12 +130,36 @@ public class DoublyLinkedList {
   }
 
   public boolean set(int index, int value) {
-    if(this.head==null || length==0 || get(index)==null){
+    if (this.head == null || length == 0 || get(index) == null) {
       return false;
     }
     Node node = get(index);
     node.value = value;
     return true;
+  }
+
+  public boolean insert(int index, int value) {
+    if (this.head == null || length == 0) {
+      return false;
+    } else if (index == 0) {
+      prepend(value);
+      return true;
+    } else if (get(index) == null || index==length) {
+      append(value);
+      return true;
+    } else {
+      Node newNode = new Node(value);
+      Node findNode = get(index);
+      Node pre = findNode.prev;
+      pre.next = newNode;
+      newNode.prev = pre;
+      newNode.next = findNode;
+      findNode.prev = newNode;
+      length++;
+      return true;
+
+    }
+
   }
 
 }
