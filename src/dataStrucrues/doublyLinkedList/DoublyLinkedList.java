@@ -144,7 +144,7 @@ public class DoublyLinkedList {
     } else if (index == 0) {
       prepend(value);
       return true;
-    } else if (get(index) == null || index==length) {
+    } else if (get(index) == null || index == length) {
       append(value);
       return true;
     } else {
@@ -163,24 +163,55 @@ public class DoublyLinkedList {
   }
 
   public Node remove(int index) {
-    if (this.head == null || length == 0 || index>length) {
+    if (this.head == null || length == 0 || index > length) {
       return null;
     }
-    Node pre=null;
-    Node next=null;
+    Node pre = null;
+    Node next = null;
     Node findNode = get(index);
-    if(index == 0){
+    if (index == 0) {
       removeFirst();
-    }else if(length==index+1){
+    } else if (length == index + 1) {
       removeLast();
-    }else{
+    } else {
       pre = findNode.prev;
       next = findNode.next;
-      pre.next=next;
-      next.prev=pre;
+      pre.next = next;
+      next.prev = pre;
       length--;
     }
     return findNode;
   }
 
+//  public void swapFirstLast_Wrong() {
+//    if (length < 2) {
+//      return;
+//    }
+//    Node nextHead = this.head.next;
+//    Node prevTail = this.tail.prev;
+//    Node temp = null;
+//    this.head.next = null;
+//    this.tail.prev = null;
+//    temp = this.head;
+//    this.head = this.tail;
+//    this.tail = temp;
+//    if (length == 2) {
+//      this.head.next = this.tail;
+//      this.tail.prev = this.head;
+//    } else {
+//      this.head.next = nextHead;
+//      nextHead.prev = this.head;
+//      this.tail.prev = prevTail;
+//      prevTail.next = this.tail;
+//    }
+//  }
+
+  public void swapFirstLast() {
+    if (length < 2) {
+      return;
+    }
+   int temp =this.head.value;
+    this.head.value = this.tail.value;
+    this.tail.value = temp;
+  }
 }
