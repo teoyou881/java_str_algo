@@ -210,8 +210,25 @@ public class DoublyLinkedList {
     if (length < 2) {
       return;
     }
-   int temp =this.head.value;
+    int temp = this.head.value;
     this.head.value = this.tail.value;
     this.tail.value = temp;
+  }
+
+  public void reverse() {
+    if (length < 2) {
+      return;
+    }
+    Node temp=this.head;
+    while(temp!=null){
+      Node next = temp.next;
+      Node tmp = temp.next;
+      temp.next = temp.prev;
+      temp.prev = tmp;
+      temp=next;
+    }
+    Node tmp = this.head;
+    this.head = this.tail;
+    this.tail = tmp;
   }
 }
