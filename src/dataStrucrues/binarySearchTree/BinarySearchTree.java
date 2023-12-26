@@ -2,13 +2,16 @@ package dataStrucrues.binarySearchTree;
 import org.w3c.dom.Node;
 
 public class BinarySearchTree {
+
   Node root;
 
-  class Node{
+  class Node {
+
     int value;
     Node left;
     Node right;
-    private Node(int value){
+
+    private Node(int value) {
       this.value = value;
     }
   }
@@ -30,7 +33,7 @@ public class BinarySearchTree {
           return true;
         }
         temp = temp.left;
-      }else{
+      } else {
         if (temp.right == null) {
           temp.right = newNode;
           return true;
@@ -38,5 +41,42 @@ public class BinarySearchTree {
         temp = temp.right;
       }
     }
+  }
+
+  public boolean contains(int value) {
+    if (root == null) {
+      return false;
+    }
+    Node temp = this.root;
+    while(temp!=null){
+      if(value>temp.value){
+        temp = temp.right;
+      }else if(value<temp.value){
+        temp = temp.left;
+      }else{
+        return true;
+      }
+    }
+    return false;
+
+//    while (true) {
+//      if (value > temp.value) {
+//        if (temp.right == null) {
+//          return false;
+//        }
+//        if (temp.right.value == value) {
+//          return true;
+//        }
+//        temp = temp.right;
+//      } else {
+//        if (temp.left == null) {
+//          return false;
+//        }
+//        if (temp.left.value == value) {
+//          return true;
+//        }
+//        temp = temp.left;
+//      }
+//    }
   }
 }
