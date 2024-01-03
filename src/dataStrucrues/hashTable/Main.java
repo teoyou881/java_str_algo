@@ -5,21 +5,24 @@ public class Main {
 
     HashTable myHashTable = new HashTable();
 
-    myHashTable.printTable();
-
+    // HASH METHOD MUST BE SET TO PUBLIC FOR THESE LINES TO WORK
+    System.out.println( myHashTable.hash("paint") );
+    System.out.println( myHashTable.hash("bolts") );
+    System.out.println( myHashTable.hash("nails") );
+    System.out.println( myHashTable.hash("stuff") );
+    System.out.println( myHashTable.hash("lumber") );
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            0:
-            1:
-            2:
-            3:
-            4:
-            5:
-            6:
+            2
+            4
+            6
+            5
+            6
 
-    	*/
+        */
+
 
   }
 
