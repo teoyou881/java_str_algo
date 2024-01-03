@@ -1,32 +1,38 @@
 package ex;
 public class Main {
 
-  static String reverseString(String s){
-    Stack stack = new Stack();
-    for (int i=0;i<s.length();i++ ){
-      char tmp = s.charAt(i);
-      stack.push(tmp);
-    }
-    Stack returnStack = new Stack();
-    StringBuilder sb= new StringBuilder();
-    while(stack.size()!=0){
-      sb.append(stack.pop());
-    }
-    return String.valueOf(sb);
-  }
-
-
-
   public static void main(String[] args) {
 
-    String myString = "hello";
-    String reversedString = reverseString(myString);
-    System.out.println(reversedString);
+    BinarySearchTree myBST = new BinarySearchTree();
+
+    myBST.insert(2);
+    myBST.insert(1);
+    myBST.insert(3);
+    myBST.insert(47);
+    myBST.insert(21);
+    myBST.insert(76);
+    myBST.insert(18);
+    myBST.insert(27);
+    myBST.insert(52);
+    myBST.insert(82);
+
+
+    System.out.println("BST Contains 27:");
+    System.out.println(myBST.contains(27));
+
+    System.out.println("\nBST Contains 17:");
+    System.out.println(myBST.contains(17));
+
 
         /*
             EXPECTED OUTPUT:
             ----------------
-            olleh
+            BST Contains 27:
+            true
+
+            BST Contains 17:
+            false
+
         */
 
   }

@@ -1,4 +1,6 @@
 package dataStrucrues.hashTable;
+import jdk.jshell.JShell;
+
 public class HashTable {
   private int size = 7;
   private Node[] dataMap;
@@ -37,6 +39,21 @@ public class HashTable {
       hash = (hash+ascii*23) % dataMap.length;
     }
     return hash;
+  }
+
+  public void set (String key, int value){
+    int hash = hash(key);
+    Node newNode = new Node(key, value);
+    if (dataMap[hash] == null) {
+      dataMap[hash] = newNode;
+    }else{
+      Node temp = dataMap[hash];
+      while(temp.next!=null){
+        temp=temp.next;
+      }
+
+      temp.next=newNode;
+    }
   }
 
 }
